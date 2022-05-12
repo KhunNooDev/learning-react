@@ -1,32 +1,45 @@
 import { Routes, Route, Link, Outlet } from 'react-router-dom'
 
 import Home from './pages/home'
-import Page2 from './pages/page2'
+import Time from './pages/time'
 
 export default function App() {
+  /* const datapath 
+    datapath is an array of objects with text and path properties for each link 
+    in the header nav bar and the current page in the main content area (Outlet)
+  */
+  const datapath = [
+    { text: 'Home', path: '/', component: Home },
+    { text: 'Time', path: '/time', component: Time },
+  ]
   return (
     <>
       <Routes>
-        <Route path='/' element={<Header />}>
-          <Route path='/' element={<Home />} />
-          <Route path='page2' element={<Page2 />} />
+        <Route path={datapath[0].path} element={<Header datapath={datapath} />}>
+          {datapath.map((item) => (
+            <Route
+              key={item.text}
+              path={item.path}
+              element={<item.component />}
+            />
+          ))}
         </Route>
       </Routes>
     </>
   )
 }
 
-function Header() {
+function Header(props) {
+  const datapath = [...props.datapath]
   return (
     <>
       <nav>
         <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/page2'>Page 2</Link>
-          </li>
+          {datapath.map((item) => (
+            <li key={item.text}>
+              <Link to={item.path}>{item.text}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
       <section>
