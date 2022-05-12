@@ -2,6 +2,7 @@ import { Routes, Route, Link, Outlet } from 'react-router-dom'
 
 import Home from './pages/home'
 import Time from './pages/time'
+import Form from './pages/form'
 
 export default function App() {
   /* const datapath 
@@ -11,6 +12,7 @@ export default function App() {
   const datapath = [
     { text: 'Home', path: '/', component: Home },
     { text: 'Time', path: '/time', component: Time },
+    { text: 'From', path: '/from', component: Form },
   ]
   return (
     <>
