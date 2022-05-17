@@ -10,6 +10,7 @@ import {
   NavLink as BSNavLink,
 } from 'reactstrap'
 import Home from './pages/home'
+import Reacthook from './pages/reacthook'
 import Time from './pages/time'
 import Form from './pages/form'
 import Todolist from './pages/todolist'
@@ -22,6 +23,7 @@ export default function App() {
   const webName = 'Learn-React'
   const datapath = [
     { text: 'Home', path: '/', component: Home },
+    { text: 'Reacthook', path: '/reacthook', component: Reacthook },
     { text: 'Time', path: '/time', component: Time },
     { text: 'From', path: '/from', component: Form },
     { text: 'Todolist', path: '/todolist', component: Todolist },
